@@ -1,0 +1,40 @@
+# --- C Fundamentals ---
+# Object files (intermediate compilation steps)
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.so
+*.dll
+
+# --- Executables ---
+# Standard output from gcc/clang
+a.out
+
+# Windows executables (if you ever switch OS)
+*.exe
+
+# Debug directories
+Debug/
+Release/
+bin/
+build/
+
+# --- Arch Linux / Editors ---
+# Vim / Neovim swap files (prevents uploading crash recovery files)
+*.swp
+*.swo
+*~
+
+# VS Code settings (optional, but good practice to keep local)
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
