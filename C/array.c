@@ -334,50 +334,105 @@ int main() {
   // }
 
   // SORT ARRAY DESCENDING
+  // int size;
+  // printf("Input the size of array : ");
+  // scanf("%d", &size);
+  //
+  // int arr[size];
+  //
+  // printf("\nInput %d elements in the array : \n", size);
+  // for (int i = 0; i < size; i++) {
+  //   printf("element - %d : ", i);
+  //   scanf("%d", &arr[i]);
+  // }
+  //
+  // // bubble sort
+  // for (int i = 0; i < size - 1; i++) {
+  //   for (int j = 0; j < size - i - 1; j++) {
+  //     if (arr[j] < arr[j + 1]) {
+  //       int temp = arr[j];
+  //       arr[j] = arr[j + 1];
+  //       arr[j + 1] = temp;
+  //     }
+  //   }
+  // }
+  //
+  // int start = 0;
+  // int end = size - 1;
+  //
+  // // descending order
+  // for (int i = 0; i < size; i++) {
+  //   if (arr[start] < arr[end]) {
+  //     int temp = arr[start];
+  //     arr[start] = arr[end];
+  //     arr[end] = temp;
+  //
+  //     start++;
+  //     end--;
+  //   }
+  // }
+  //
+  // printf("\nExpected Output :\n");
+  // printf("Elements of the array in sorted descending order: \n");
+  // for (int i = 0; i < size; i++) {
+  //   printf("%d ", arr[i]);
+  // }
+
+  // INSERT IN SORTED ARRAY
   int size;
-  printf("Input the size of array : ");
+  printf("Input the number of elements you want to insert(max 100): ");
   scanf("%d", &size);
+  if (size > 100) {
+    printf("\nERROR!! MAXIMUM OF 100 ONLY");
+    return 1; // exits the program
+  }
 
-  int arr[size];
-
-  printf("\nInput %d elements in the array : \n", size);
+  int arr[101];
+  printf("Input %d elements in the array in ascending order: \n", size);
   for (int i = 0; i < size; i++) {
     printf("element - %d : ", i);
     scanf("%d", &arr[i]);
   }
+  int value;
+  // get value
+  printf("Input the value to be inserted : ");
+  scanf("%d", &value);
 
-  // bubble sort
-  for (int i = 0; i < size - 1; i++) {
-    for (int j = 0; j < size - i - 1; j++) {
-      if (arr[j] < arr[j + 1]) {
-        int temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
-      }
-    }
-  }
-
-  int start = 0;
-  int end = size - 1;
-
-  // ascending order
-  for (int i = 0; i < size; i++) {
-    if (arr[start] < arr[end]) {
-      int temp = arr[start];
-      arr[start] = arr[end];
-      arr[end] = temp;
-
-      start++;
-      end--;
-    }
-  }
-
-  printf("\nExpected Output :\n");
-  printf("Elements of the array in sorted descending order: \n");
+  // PRINT THE EXISTING ARRAY LIST
   for (int i = 0; i < size; i++) {
     printf("%d ", arr[i]);
   }
 
-  // INSERT IN SORTED ARRAY
+  // Get input and add the size of array
+  int position;
+
+  // determine postion
+  for (int i = 0; i < size; i++) {
+    if (value < arr[i]) {
+      position = i;
+      break;
+    } else {
+      position = i + 1;
+    }
+  }
+  size++;
+  // move elements in the right
+  for (int i = size; i >= position; i--) {
+    arr[i + 1] = arr[i];
+  }
+
+  arr[position] = value;
+  printf("\nAfter Insert the list is :\n");
+  // print the list after insert
+  for (int i = 0; i < size; i++) {
+    printf("%d ", arr[i]);
+  }
+  // AFTER SOLVING: I've made two errors. I was struggling on whether I should
+  // just manually put 101 or let it be the size. I decide to get size but I got
+  // an error afterwards because size is already initialized and you can't add
+  // another. #2 was that I've tried other solutions such as tyring to get
+  // bubble sort algo to be involve then realized that wasn't efficient and gave
+  // in after 20-30mins for looking for alternative solutions.
+
   return 0;
 }
