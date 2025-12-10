@@ -379,60 +379,109 @@ int main() {
   // }
 
   // INSERT IN SORTED ARRAY
-  int size;
-  printf("Input the number of elements you want to insert(max 100): ");
-  scanf("%d", &size);
-  if (size > 100) {
-    printf("\nERROR!! MAXIMUM OF 100 ONLY");
-    return 1; // exits the program
-  }
+  // int size;
+  // printf("Input the number of elements you want to insert(max 100): ");
+  // scanf("%d", &size);
+  // if (size > 100) {
+  //   printf("\nERROR!! MAXIMUM OF 100 ONLY");
+  //   return 1; // exits the program
+  // }
+  //
+  // int arr[101];
+  // printf("Input %d elements in the array in ascending order: \n", size);
+  // for (int i = 0; i < size; i++) {
+  //   printf("element - %d : ", i);
+  //   scanf("%d", &arr[i]);
+  // }
+  // int value;
+  // // get value
+  // printf("Input the value to be inserted : ");
+  // scanf("%d", &value);
+  //
+  // // PRINT THE EXISTING ARRAY LIST
+  // for (int i = 0; i < size; i++) {
+  //   printf("%d ", arr[i]);
+  // }
+  //
+  // // Get input and add the size of array
+  // int position;
+  //
+  // // determine postion
+  // for (int i = 0; i < size; i++) {
+  //   if (value < arr[i]) {
+  //     position = i;
+  //     break;
+  //   } else {
+  //     position = i + 1;
+  //   }
+  // }
+  // size++;
+  // // move elements in the right
+  // for (int i = size; i >= position; i--) {
+  //   arr[i + 1] = arr[i];
+  // }
+  //
+  // arr[position] = value;
+  // printf("\nAfter Insert the list is :\n");
+  // // print the list after insert
+  // for (int i = 0; i < size; i++) {
+  //   printf("%d ", arr[i]);
+  // }
+  // // AFTER SOLVING: I've made two errors. I was struggling on whether I
+  // should
+  // // just manually put 101 or let it be the size. I decide to get size but I
+  // got
+  // // an error afterwards because size is already initialized and you can't
+  // add
+  // // another. #2 was that I've tried other solutions such as tyring to get
+  // // bubble sort algo to be involve then realized that wasn't efficient and
+  // gave
+  // // in after 20-30mins for looking for alternative solutions.
 
-  int arr[101];
-  printf("Input %d elements in the array in ascending order: \n", size);
+  // Insert in Unsorted Array
+  int size;
+  printf("Input the size of array: ");
+  scanf("%d", &size);
+  int arr[100];
+  printf("\nInput the %d elements in the array in ascending order: \n", size);
   for (int i = 0; i < size; i++) {
     printf("element - %d : ", i);
     scanf("%d", &arr[i]);
   }
-  int value;
-  // get value
-  printf("Input the value to be inserted : ");
+  int value, position;
+  printf("\nInput the value to be inserted : ");
   scanf("%d", &value);
-
-  // PRINT THE EXISTING ARRAY LIST
+  printf("Input the Position, where the value to be inserted : ");
+  scanf("%d", &position);
+  // Print the current array order
+  printf("\nThe current list of the array: \n");
   for (int i = 0; i < size; i++) {
     printf("%d ", arr[i]);
   }
-
-  // Get input and add the size of array
-  int position;
-
-  // determine postion
-  for (int i = 0; i < size; i++) {
-    if (value < arr[i]) {
-      position = i;
-      break;
-    } else {
-      position = i + 1;
-    }
-  }
   size++;
-  // move elements in the right
-  for (int i = size; i >= position; i--) {
+  // move array right
+  for (int i = size; i > position - 1; i--) {
     arr[i + 1] = arr[i];
   }
 
   arr[position] = value;
-  printf("\nAfter Insert the list is :\n");
-  // print the list after insert
+
+  // bubble sort?
+  for (int i = 0; i < size - 1; i++) {
+    for (int j = 0; j < size - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        int temp = arr[j + 1];
+        arr[j + 1] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  }
+
+  // Print after insert
+  printf("\nAfter Insert the element the new lists is :  \n");
   for (int i = 0; i < size; i++) {
     printf("%d ", arr[i]);
   }
-  // AFTER SOLVING: I've made two errors. I was struggling on whether I should
-  // just manually put 101 or let it be the size. I decide to get size but I got
-  // an error afterwards because size is already initialized and you can't add
-  // another. #2 was that I've tried other solutions such as tyring to get
-  // bubble sort algo to be involve then realized that wasn't efficient and gave
-  // in after 20-30mins for looking for alternative solutions.
 
   return 0;
 }
