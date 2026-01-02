@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include <stdio.h>
 
 int main() {
@@ -439,49 +440,118 @@ int main() {
   // // in after 20-30mins for looking for alternative solutions.
 
   // Insert in Unsorted Array
-  int size;
-  printf("Input the size of array: ");
-  scanf("%d", &size);
-  int arr[100];
-  printf("\nInput the %d elements in the array in ascending order: \n", size);
-  for (int i = 0; i < size; i++) {
-    printf("element - %d : ", i);
-    scanf("%d", &arr[i]);
-  }
-  int value, position;
-  printf("\nInput the value to be inserted : ");
-  scanf("%d", &value);
-  printf("Input the Position, where the value to be inserted : ");
-  scanf("%d", &position);
-  // Print the current array order
-  printf("\nThe current list of the array: \n");
-  for (int i = 0; i < size; i++) {
-    printf("%d ", arr[i]);
-  }
-  size++;
-  // move array right
-  for (int i = size; i > position - 1; i--) {
-    arr[i + 1] = arr[i];
-  }
+  // int size;
+  // printf("Input the size of array: ");
+  // scanf("%d", &size);
+  // int arr[100];
+  // printf("\nInput the %d elements in the array in ascending order: \n",
+  // size); for (int i = 0; i < size; i++) {
+  //   printf("element - %d : ", i);
+  //   scanf("%d", &arr[i]);
+  // }
+  // int value, position;
+  // printf("\nInput the value to be inserted : ");
+  // scanf("%d", &value);
+  // printf("Input the Position, where the value to be inserted : ");
+  // scanf("%d", &position);
+  // // Print the current array order
+  // printf("\nThe current list of the array: \n");
+  // for (int i = 0; i < size; i++) {
+  //   printf("%d ", arr[i]);
+  // }
+  // size++;
+  // // move array right
+  // for (int i = size; i > position - 1; i--) {
+  //   arr[i + 1] = arr[i];
+  // }
+  //
+  // arr[position] = value;
+  //
+  // // bubble sort?
+  // for (int i = 0; i < size - 1; i++) {
+  //   for (int j = 0; j < size - i - 1; j++) {
+  //     if (arr[j] > arr[j + 1]) {
+  //       int temp = arr[j + 1];
+  //       arr[j + 1] = arr[j];
+  //       arr[j] = temp;
+  //     }
+  //   }
+  // }
+  //
+  // // Print after insert
+  // printf("\nAfter Insert the element the new lists is :  \n");
+  // for (int i = 0; i < size; i++) {
+  //   printf("%d ", arr[i]);
+  // }
 
-  arr[position] = value;
+  // Word counter
+  // char str[100];
+  // int counts[21] = {0};
+  // int current_len = 0;
+  //
+  // printf("Enter text: ");
+  // fgets(str, 100, stdin);
+  //
+  // for (int i = 0; str[i] != '\0'; i++) {
+  //   // Only counts letters. Does not include punctation
+  //   if (isalpha((unsigned char)str[i])) {
+  //     current_len++;
+  //   } // if not a space means we are in a word
+  //   else if (isspace((unsigned char)str[i])) {
+  //     if (current_len > 0) {
+  //       counts[current_len]++; // records the count
+  //       current_len = 0;       // resets counter
+  //     }
+  //   }
+  // }
+  //
+  // // To catch the last word
+  // if (current_len > 0) {
+  //   counts[current_len]++;
+  // }
+  //
+  // int totalWords = 0;
+  // // Print Output
+  // printf("\nResults:\n");
+  // for (int i = 1; i < 21; i++) {
+  //   if (counts[i] > 0) {
+  //     printf("%d-letter words: %d\n", i, counts[i]);
+  //     totalWords += counts[i];
+  //   }
+  // }
+  // printf("Total words: %d\n", totalWords);
 
-  // bubble sort?
-  for (int i = 0; i < size - 1; i++) {
-    for (int j = 0; j < size - i - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        int temp = arr[j + 1];
-        arr[j + 1] = arr[j];
-        arr[j] = temp;
+  // char str[] = "The cats are cool";
+  // int start_index = 4;
+  // int word_length = 4;
+  //
+  // for (int i = start_index; i < (start_index + word_length); i++) {
+  //   str[i] = 'X';
+  // }
+  // printf("%s", str);
+
+  char str[] = "The cats are cool";
+  int current_len = 0;
+
+  for (int i = 0; str[i] != '\0'; i++) {
+    if (str[i] != ' ') {
+      current_len++;
+    } else {
+      // We hit a space! The word just ended.
+      if (current_len == 3) {
+        printf("Found a 3-letter word!\n");
+        printf("It ended at index: %d\n", i);
+
+        // TASK: Calculate the start_index here using i and current_len
+        int start_index = i - current_len;
       }
+      current_len = 0; // Reset for next word
     }
   }
-
-  // Print after insert
-  printf("\nAfter Insert the element the new lists is :  \n");
-  for (int i = 0; i < size; i++) {
-    printf("%d ", arr[i]);
+  for (int i = start_index; i < current_len; i++) {
+    str[i] = '*';
   }
 
+  printf("%s", str);
   return 0;
 }
