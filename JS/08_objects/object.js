@@ -182,78 +182,78 @@
 // console.log(users.mernStackUsers());
 
 // 3
-const personAccount = {
-  firstName: "Keziah",
-  lastName: "Joy",
-  incomes: [
-    { ammount: 350, description: "Salary" },
-    { ammount: 200, description: "Bonus" },
-  ],
-  expenses: [{ ammount: 100, description: "Food" }],
-  properties: "House",
+// const personAccount = {
+//   firstName: "Keziah",
+//   lastName: "Joy",
+//   incomes: [
+//     { ammount: 350, description: "Salary" },
+//     { ammount: 200, description: "Bonus" },
+//   ],
+//   expenses: [{ ammount: 100, description: "Food" }],
+//   properties: "House",
 
-  // Calculate total income
-  totalIncome: function () {
-    let total = 0;
-    for (let i = 0; i < this.incomes.length; i++) {
-      total += this.incomes[i].ammount;
-    }
-    return total;
-  },
+//   // Calculate total income
+//   totalIncome: function () {
+//     let total = 0;
+//     for (let i = 0; i < this.incomes.length; i++) {
+//       total += this.incomes[i].ammount;
+//     }
+//     return total;
+//   },
 
-  // Calculate total expenses
-  totalExpense: function () {
-    let total = 0;
-    for (let i = 0; i < this.expenses.length; i++) {
-      total += this.expenses[i].ammount;
-    }
-    return total;
-  },
+//   // Calculate total expenses
+//   totalExpense: function () {
+//     let total = 0;
+//     for (let i = 0; i < this.expenses.length; i++) {
+//       total += this.expenses[i].ammount;
+//     }
+//     return total;
+//   },
 
-  // Calculate Balance
-  accountBalance: function () {
-    const balance = this.totalIncome() - this.totalExpense();
-    return balance;
-  },
+//   // Calculate Balance
+//   accountBalance: function () {
+//     const balance = this.totalIncome() - this.totalExpense();
+//     return balance;
+//   },
 
-  //Add new income
-  addIncome: function () {
-    console.log("\n---ADD INCOME ---");
-    const desc = prompt("Income Description: ");
-    const amt = parseInt(prompt("Income Ammount: "));
+//   //Add new income
+//   addIncome: function () {
+//     console.log("\n---ADD INCOME ---");
+//     const desc = prompt("Income Description: ");
+//     const amt = parseInt(prompt("Income Ammount: "));
 
-    // Push an Object
-    const newIncome = { ammount: amt, description: desc };
-    this.incomes.push(newIncome);
-    console.log(`Added ${desc}: ${amt}`);
-  },
+//     // Push an Object
+//     const newIncome = { ammount: amt, description: desc };
+//     this.incomes.push(newIncome);
+//     console.log(`Added ${desc}: ${amt}`);
+//   },
 
-  // Add new expense
-  addExpense: function () {
-    console.log("\n--- ADD EXPENSE ---");
-    const desc = prompt("Expense Description: ");
-    const amt = parseInt(prompt("Expense Amount: "));
+//   // Add new expense
+//   addExpense: function () {
+//     console.log("\n--- ADD EXPENSE ---");
+//     const desc = prompt("Expense Description: ");
+//     const amt = parseInt(prompt("Expense Amount: "));
 
-    // Push an Object
-    const newExpnse = { ammount: amt, description: desc };
-    this.expenses.push(newExpnse);
-    console.log(`Added ${desc}: ${amt}`);
-  },
+//     // Push an Object
+//     const newExpnse = { ammount: amt, description: desc };
+//     this.expenses.push(newExpnse);
+//     console.log(`Added ${desc}: ${amt}`);
+//   },
 
-  //SUMMARY
-  accountInfo: function () {
-    return `
-    Name: ${this.firstName} ${this.lastName}
-    Total Income: ${this.totalIncome()}
-    Total Expense: ${this.totalExpense()}
-    ------------------------
-    Current Balance: ${this.accountBalance()}
-    `;
-  },
-};
+//   //SUMMARY
+//   accountInfo: function () {
+//     return `
+//     Name: ${this.firstName} ${this.lastName}
+//     Total Income: ${this.totalIncome()}
+//     Total Expense: ${this.totalExpense()}
+//     ------------------------
+//     Current Balance: ${this.accountBalance()}
+//     `;
+//   },
+// };
 
-console.log("Initial Balance:", personAccount.accountInfo());
+// console.log("Initial Balance:", personAccount.accountInfo());
 
-personAccount.addIncome();
-personAccount.addExpense();
-console.log(personAccount.accountInfo());
+// personAccount.addIncome();
+// personAccount.addExpense();
+// console.log(personAccount.accountInfo());
