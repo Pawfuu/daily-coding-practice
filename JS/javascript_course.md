@@ -11,3 +11,5 @@ My Progress: [JS Folder](./)
 | :--- | :--- | :--- | :--- |
 | 01-06 | Basic to Functions | Skipped | Fast-tracked; covered with prior experience in C and Java |
 | 07 | Functions | In Progress | Not yet used with the arrow function and still finishing the exercises |
+| 08 | Objects | ✅ Done | Understood, struggled abit for lvl 3.4|
+
