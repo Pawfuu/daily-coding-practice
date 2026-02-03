@@ -90,31 +90,31 @@ int main() {
   // printf("\n");
 
   // PROGRAMMING EXERCISES 7-4
-  char str[100];
-
-  printf("Input text: ");
-  fgets(str, 100, stdin);
-
-  int current_len = 0;
-
-  for (int i = 0; i <= strlen(str); i++) {
-    if (!isspace((unsigned char)str[i]) && str[i] != '\0') {
-      current_len++;
-    } else {
-      if (current_len == 4) {
-        int start_index = i - current_len;
-
-        // replace wrods with *
-        for (int j = start_index; j < i; j++) {
-          str[j] = '*';
-        }
-      }
-      current_len = 0; // resets for next word
-    }
-  }
-
-  printf("Results: %s\n", str);
-
+  // char str[100];
+  //
+  // printf("Input text: ");
+  // fgets(str, 100, stdin);
+  //
+  // int current_len = 0;
+  //
+  // for (int i = 0; i <= strlen(str); i++) {
+  //   if (!isspace((unsigned char)str[i]) && str[i] != '\0') {
+  //     current_len++;
+  //   } else {
+  //     if (current_len == 4) {
+  //       int start_index = i - current_len;
+  //
+  //       // replace wrods with *
+  //       for (int j = start_index; j < i; j++) {
+  //         str[j] = '*';
+  //       }
+  //     }
+  //     current_len = 0; // resets for next word
+  //   }
+  // }
+  //
+  // printf("Results: %s\n", str);
+  //
   // PROGRAMMING EXERCISES 7-5
   // char str[100];
   //
@@ -184,5 +184,50 @@ int main() {
   //     printf("%d ", arr[i]);
   //   }
   // }
+
+  // CASE STUDY 1
+
+  char girl[50];
+  char boy[50];
+  char commonLetters[50];
+  char tempGirl[50];
+
+  printf("Name of Boy: ");
+  fgets(boy, 50, stdin);
+  printf("Name of Girl: ");
+  fgets(girl, 50, stdin);
+
+  // replaces it newline with the null
+  boy[strcspn(boy, "\n")] = '\0';
+  girl[strcspn(girl, "\n")] = '\0';
+
+  // create a backup copy for the girl's name
+  strcpy(tempGirl, girl);
+
+  int commonCount = 0;
+
+  for (int i = 0; i < strlen(boy); i++) {
+    for (int j = 0; j < strlen(girl); j++) {
+      if (boy[i] == tempGirl[j] && tempGirl[j] == '*') {
+        commonLetters[commonCount] = boy[i];
+        commonCount++;
+        // to mark that the letter have been used and not to count
+        tempGirl[j] = '*';
+        break;
+      }
+    }
+  }
+  printf("Name of common letters Boy: %d (%s) ", commonCount, commonLetters);
+
+  // CASE STUDY 2
+  //
+  // char password[50];
+  // int i = 0;
+  // char ch;
+  //
+  // printf("Enter Password: ");
+  // while (1) {
+  // }
+
   return 0;
 }
