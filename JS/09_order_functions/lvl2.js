@@ -33,16 +33,44 @@ const categorizeCountries = (pattern) => {
 // console.log(categorizeCountries("island"))
 // console.log(categorizeCountries("stan"))
 
+const countsLetter = countries
+.map((element) => element[0])
+.reduce((acc, cur) => {
+  // check if key or letter is already exist in the object 
+  // if(acc[cur]){
+  //   acc[cur]++;
+  // }else{
+  //   acc[cur] = 1;
+  // }
+  // shortcut - returns 0 if undefined and and adds 1
+  acc[cur] = (acc[cur] || 0) + 1;
+  return acc;
+}, {})
+const formattedArray = Object.entries(countsLetter)
+.map(([letter, count])=>{
+  return {letter: letter, count: count}
+})
+
+// 7
+const mostFrequent = formattedArray.reduce((winner, contender)=>{
+  if(winner.count < contender.count){
+    return contender // becomes the new winner
+  }
+  return winner // stays 
+})
+console.log(mostFrequent)
 
 
+const getFirstTenCountries = countries
+.filter((country, index)=>{
+  return index < 10
+})
+// console.log(getFirstTenCountries)
 
-
-
-
-
-
-
-
-
-
+const getLastTenCountries = (arr) =>{
+  return arr.filter((country, index)=>{
+    return index >= arr.length - 10;
+  })
+}
+// console.log(getLastTenCountries(countries))
 
